@@ -1,0 +1,12 @@
+                                                           RRT MOTION PATH PLANNING
+
+
+The  Rapidly-exploring  Random  Tree  (RRT)  algorithm,  based  on  incremental  sampling,  efficiently  computesmotion  plans.
+
+Although  the  RRT  algorithm  quickly  produces candidate  feasible  solutions,  it  tends  to  converge  to  a  solution that is far from optimal. Practical applications favor “anytimealgorithms  that  quickly  identify  an  initial  feasible  plan,  then,given  more  computation  time  available  during  plan  execution,improve the plan toward an optimal solution.
+
+The path is planned by building a tree starting from the position of the robot. When a point in the space is randomly sampled, it is checked if that point collides with an obstacle in the space. 
+
+If the sampled point has no collisions, it is then checked if the straight line path between the sampled point and the nearest existing point in the tree has any collisions.
+
+ If this straight line path has no collisions, the sampled point is added to the tree with the nearest point as its parent node. If there is a collision, this point is thrown out.
