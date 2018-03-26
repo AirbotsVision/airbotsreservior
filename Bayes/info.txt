@@ -1,0 +1,8 @@
+					E-mail Spam Detection
+
+You work as a software engineer at a company which provides email services to millions of people. Lately, spam has a been a major problem and has caused your customers to leave.You work as a software engineer at a company which provides email services to millions of people. Lately, spam has a been a major problem and has caused your customers to leave.
+
+Baye's Theorem is used as a method in our detection method.
+				
+
+we can set A to the probability that the email is spam and B as the contents of the email. If P(A|B) > P(¬A|B) then we can classify the email as spam, otherwise we can’t. 
