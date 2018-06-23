@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block title %}Image Recognition | AI Course-work{% endblock %}
+{% block content %}
+<div class="container">
+  <div style="padding-bottom: 2em;text-align:center">
+    <h1 class="text-center" style="color:#047c2a">Reception Care Center</h1>
+    <p>Iyantras API provides Reception Intellegence by knowing the people and displays biography of customer</p>
+  </div>
+  <!-- <ul>
+    <li>{{record.first_name}} {{record.last_name}}</li>
+    <li>{{record.occupation}}</li>
+    <li>{{record.residence}}, {{record.country}}</li>
+  </ul> -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1" style="padding-top:3em;padding-bottom:3em;-webkit-box-shadow: 0px 0px 14px 0px rgba(50, 50, 50, 0.5);
+-moz-box-shadow:    0px 0px 14px 0px rgba(50, 50, 50, 0.5);
+box-shadow:         0px 0px 14px 0px rgba(50, 50, 50, 0.5);">
+        <div class="col-md-5">
+          <div class="row">
+            <div class="col-md-12" style="text-align:left">
+              <h3 style="color:#d18f02"><b>{{record.first_name}} {{record.last_name}}</b></h3>
+              <h5><b>Recidence: </b> {{record.residence}}, {{record.country}}</h5>
+              <h5><b>Phone Number: </b> {{record.phonenumber}}
+              <h5><b>Marital status: </b> {{record.marital_status}}
+              <h5><b>Number of Visits: </b> {{record.visits}} </h5>
+              <h5><b>Safty Deposit ID: </b> {{record.saftyid}} </h5>             
+              <h5><b>Date Recorded in System: </b> {{record.recorded_at}}</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-7">
+          <h3>Reviews</h3>
+          <p>
+            {{record.review}}
+          </p>
+        </div>
+        <div class="col-md-12" style="margin-top:2em">
+          <a href="/" class="btn btn-warning"><i class="fa fa-chevron-left" aria-hidden="true"></i> Home</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+
+<!--
+<div class="col-md-8 col-md-offset-2">
+    <img src="{% static '' %}img/{{record.id}}.jpg" class="img-responsive" style="border-radius:50%"/>
+</div>
+-->
