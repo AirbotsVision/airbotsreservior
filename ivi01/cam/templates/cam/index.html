@@ -1,118 +1,161 @@
-{% extends 'cam/layout.html' %}
-{% load static %}
-{% block title %}Image Recognition | AI Course-work{% endblock %}
-{% block content %}
+{% extends 'cam/layout.html' %} {% load static %} {% block title %}Image Recognition | AI Course-work{% endblock %} {% block content %}
 <div id="particles-js"></div>
-<div class="container" >
-  <div class="col-lg-12" style="background: rgba(0,0,0,0.6);margin-top:3em;margin-bottom:5em;padding-top:1em;padding-bottom:3em;color:#fff;border-radius:10px;-webkit-box-shadow: 2px 2px 15px 0px rgba(0, 3, 0, 0.7);
+<div class="container">
+    <div class="col-lg-12" style="background: rgba(0,0,0,0.6);margin-top:3em;margin-bottom:5em;padding-top:1em;padding-bottom:3em;color:#fff;border-radius:10px;-webkit-box-shadow: 2px 2px 15px 0px rgba(0, 3, 0, 0.7);
 -moz-box-shadow:    2px 2px 15px 0px rgba(0, 3, 0, 0.7); 
 box-shadow:         2px 2px 15px 0px rgba(0, 3, 0, 0.7);">
-    <div class="col-lg-12">
-      <h1 class="text-center section-title" style="margin-bottom:2em">Iyantras Video Recognition Engine</h1>
-    </div>
-    <style>
-      h4{
-        margin-bottom: 1.5em;
-      }
-      img{
-        border-radius:50%;
-        -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-     transition: all 0.3s ease-in-out;
-      }
-      img:hover{
-        -webkit-box-shadow: 2px 2px 21px 0px rgba(0, 3, 0, 0.91);
-        -moz-box-shadow:    2px 2px 21px 0px rgba(0, 3, 0, 0.91);
-        box-shadow:         2px 2px 21px 0px rgba(0, 3, 0, 0.91);
-        border:2px solid #fff;
-      }
-      h3{
-        margin-bottom: 1.3em;
-      }
-      a{
-        color:inherit
-      }
-      a:hover{
-        color:inherit;
-        text-decoration: none;
-      }
-      .sectiontitle:after {
-        	content:' ';display:block;margin:0 auto;width:100px;margin-top: 6px;border:2px solid #d0d0d0;border-radius:4px;
-        	-webkit-border-radius:4px;
-        	-moz-border-radius:4px;
-        	box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
-        	-webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
-        	-moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
-          margin-bottom:1em;
+        <style>
+        h4 {
+            margin-bottom: 1.5em;
         }
-    </style>
-    <div class="row">
-        <IFRAME src="http://85.93.105.195:8081/mjpg/video.mjpg?COUNTER8" align="center" width="640" height="480" scrolling="no" frameborder=no marginheight="3px"</IFRAME>
-    </div>
-    <!--
-    <div class="row">
-      <!div class="col-md-5" style="border-right: 2px solid;">
-      <div class="col-md-5">
-        <div class="col-md-6">
-          <a href="/detect_image"><img src="{% static 'img/photo.png' %}" class="img-responsive" /></a>
-  
-          <h4 class="text-center">Remote CAM</h4>
-        </div>
-        <div class="col-md-4">
-          <a href="/detect"><img src="{% static 'img/webcam.png' %}" class="img-responsive" /></a>
-          <h4 class="text-center">Webcam</h4>
-        </div>
-         <div class="col-md-4">
-          <button type="button" style="background:transparent;border:none" data-toggle="modal" data-target="#myModal">
-            <img src="{% static 'img/add.png' %}" class="img-responsive" />
-          </button>
-          <h4 class="text-center">Dataset Create</h4>
-        </div>
-         <div class="col-md-4">
-          <a href="/trainer"><img src="{% static 'img/trainer.png' %}" class="img-responsive" /></a>
-          <h4 class="text-center">Train</h4>
-        </div>
-      </div>
-      <div class="col-md-7">
-        <IFRAME src="http://85.93.105.195:8081/mjpg/video.mjpg?COUNTER8" align="center" width="320" height="240" scrolling="no" frameborder=no marginheight="0px"</IFRAME>
-        <!video width="640" height="480" autoplay="autoplay" muted="muted"><!source src="http://85.93.105.195:8081/mjpg/video.mjpg?COUNTER8" type="video/mp4"/><!/video>
-        <!video id="player" class="video-js vjs-default-skin" height="360" width="640" controls preload="none">
-            <!source src="http://85.93.105.195:8081/mjpg/video.mjpg?COUNTER8" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
 
-              <!source src="http://85.93.105.195:8081/mjpg/video.mjpg?COUNTER8" type="video/webm" />
-        <!/video>
-         <!video id="movie" width="460" height="306" preload autoplay>
-        <!source src="http://85.93.105.195:8081/mjpg/video.mjpg?COUNTER"  type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+        img {
+            border-radius: 50%;
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+        }
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Input unique id and wait for webcam</h4>
-      </div>
-      <div class="modal-body">
-        <ul>
-          <li>For higher accuracy, make sure to stay in room with good lightning.</li>
-          <li>Please remove any type of accesories from face.</li>
-          <li>Make sure your face in clearly visible in camera.</li>
-          <li>Make sure your hair is not blocking the face.</li>
-          <li>Make sure no other faces are within the cam frame.
-        </ul>
-        <hr/>
-        <form action="/create_dataset" method="POST">
-          {% csrf_token %}
-          <div class="form-group">
-            <label for="inputId">Enter Unique ID*</label>
-            <input type="text" class="form-control" name="userId" id="inputId" placeholder="Enter Id">
+        img:hover {
+            -webkit-box-shadow: 2px 2px 21px 0px rgba(0, 3, 0, 0.91);
+            -moz-box-shadow: 2px 2px 21px 0px rgba(0, 3, 0, 0.91);
+            box-shadow: 2px 2px 21px 0px rgba(0, 3, 0, 0.91);
+            border: 2px solid #fff;
+        }
+
+        h3 {
+            margin-bottom: 1.3em;
+        }
+
+        a {
+            color: inherit
+        }
+
+        a:hover {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .sectiontitle:after {
+            content: ' ';
+            display: block;
+            margin: 0 auto;
+            width: 100px;
+            margin-top: 6px;
+            border: 2px solid #d0d0d0;
+            border-radius: 4px;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+            -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+            margin-bottom: 1em;
+        }
+        </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script>
+        function myFunction() {
+            setTimeout(function() {
+                max = 10
+                min = 1
+                document.getElementById("demo0").innerHTML = (Math.floor(Math.random() * (max - min + 1)) + min);
+                document.getElementById("demo1").innerHTML = (Math.floor(Math.random() * (max - min + 1)) + min);
+                document.getElementById("demo2").innerHTML = (Math.floor(Math.random() * (max - min + 1)) + min);
+                document.getElementById("demo3").innerHTML = (Math.floor(Math.random() * (max - min + 1)) + min);
+                document.getElementById("a").style.width = (Math.floor(Math.random() * (max - min + 1)) + min + "%");
+                document.getElementById("b").style.width = (Math.floor(Math.random() * (max - min + 1)) + min + "%");
+                document.getElementById("c").style.width = (Math.floor(Math.random() * (max - min + 1)) + min + "%");
+                document.getElementById("d").style.width = (Math.floor(Math.random() * (max - min + 1)) + min + "%");
+                myFunction()
+            }, 1000);
+        }
+        myFunction()
+        </script>
+        <style>
+    .container1 {
+            width: 30%;
+            padding-right: 20px;
+            margin: 15px;
+        }
+    }
+    .skills {
+        padding-right: 20px;
+        line-height: 40px;
+        color: white;
+        margin: 5px;
+    }
+    .html {
+        background-color: #92E3A8;
+    }
+
+    .css {
+        background-color: #92E3A8;
+    }
+
+    .js {
+        background-color: #92E3A8;
+    }
+
+    .php {
+        background-color: #92E3A8;
+
+        .logo {
+            height: 80px;
+            border: 1px solid red;
+        }
+
+        .logo p {
+            margin: 0;
+            padding: 0;
+            border: solid 1px black;
+            margin-left: 20px;
+            font-size: 36px;
+            display: inline-block;
+            line-height: 80px;
+            vertical-align: top;
+        }
+
+      }
+        </style>
+        <div class="row">
+         <div style="position:relative; top: 15px; left: -15px;">
+                <IFRAME src="http://85.93.105.195:8081/mjpg/video.mjpg?COUNTER8" align="right" width="640" height="480" scrolling="no" frameborder="no"></IFRAME>
+           </div>
+            <div class="col-md-4">
+                <h3>Iyantars Eagle Eye</h3>
+                <div class="logo">
+                    <p style="display:inline">People Count :</p>
+                    <p style="display:inline" id="demo0"></p>
+                    <br>
+                    <p style="display:inline">Entities Detected:</p>
+                    <p style="display:inline" id="demo1"></p>
+                    <br>
+                    <p style="display:inline">Active People Count:</p>
+                    <p style="display:inline" id="demo2"></p>
+                    <br>
+                    <p style="display:inline">Plates Count:</p>
+                    <p style="display:inline" id="demo3"></p>
+                    <br>
+                </div>
+            </div>
+            <div class="col-md-4">
+            <h3>Alerts</h3>
           </div>
-          <button type="submit" class="btn btn-warning">Submit</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-
-{% endblock %}
--->
+            <div class="container1">
+                <p> Camera Tampering Alert</p>
+                <div id="a" class=" skills html">.</div>
+            </div>
+            <div class="container1">
+                <p> Theft Alert</p>
+                <div id="b" class="skills css">.</div>
+            </div>
+            <div class="container1">
+                <p class="ex1"> Crowd Alert</p>
+                <div id="c" class="skills js"> .</div>
+            </div>
+            <div class="container1">
+                <p class="ex1"> Violence Alert</p>
+                <div id="d" class="skills php"> .</div>
+            </div>
+        </div>
+        {% endblock %}
